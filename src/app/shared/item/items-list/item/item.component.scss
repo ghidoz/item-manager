@@ -1,0 +1,17 @@
+@import '../../../../../style/variables';
+
+.price{
+    color: $mainColor;
+}
+
+.card-title, .card-text{
+    font-size: 14px;
+}
+
+.card-title{
+    color: #6a6a6a;
+}
+
+.card-text{
+    color: #b5b5b5;
+}

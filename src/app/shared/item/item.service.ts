@@ -20,7 +20,7 @@ export class ItemService {
         let body = res.json();
         let items: Item[] = [];
         body.items.forEach((item: any) => {
-            items.push(new Item(item.title, item.description, item.price, item.email));
+            items.push(new Item(item.title, item.description, item.price, item.email, item.image));
         })
         return items;
     }
