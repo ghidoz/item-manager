@@ -9,13 +9,13 @@ import * as _ from 'underscore';
 export class ItemService {
 
     private apiUrl = 'json/items.json';
-    private data: Item[];
+    private data: Item[] = [];
 
     constructor(private http: Http) { }
 
     query(page: number, size: number = 5): Observable<Item[]> {
         page--;
-        if(this.data){
+        if(this.data.length > 0){
             return Observable.of(this.data)
                 .map((items: Item[]) => this.paginate(items, page, size))
         }
@@ -23,6 +23,10 @@ export class ItemService {
             .map((res: any) => this.extractQueryData(res))
             .map((items: Item[]) => this.paginate(items, page, size))
             .catch((res: any) => this.handleError(res));
+    }
+
+    isLastPage(total: number): boolean {
+        return total === this.data.length;
     }
 
     private extractQueryData(res: any): Item[] {

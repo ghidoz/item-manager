@@ -14,10 +14,10 @@ import { ItemComponent } from './item/item.component';
 })
 export class ItemsListComponent implements OnInit {
 
-    items: Item[];
+    items: Item[] = [];
     page: number = 1;
     pageSize: number = 4;
-    
+
     constructor(private itemService: ItemService) { }
 
     ngOnInit() { 
@@ -30,9 +30,13 @@ export class ItemsListComponent implements OnInit {
         });
     }
 
-    onScroll(){
+    loadMore(){
         this.page++;
         this.getItems(true);
+    }
+
+    get isLastPage(){
+        return this.itemService.isLastPage(this.items.length);
     }
 
 }
