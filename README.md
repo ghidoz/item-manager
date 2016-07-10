@@ -1,27 +1,9 @@
-# Angular2 Starter with Angular-CLI
+# Item Manager
 
-This project was generated with [Angular-CLI](https://github.com/angular/angular-cli) version 1.0.0-beta.9.
-
-It kindly comes also with:
-
- - Support for [SCSS files and variables](https://www.codementor.io/angularjs/tutorial/compiling-sass-postcss-with-angular-cli)
- - Common app styles
- - [Bootstrap 4](http://v4-alpha.getbootstrap.com)
- - [ng2-bootstrap](http://valor-software.com/ng2-bootstrap/)
- - [Underscore](http://underscorejs.org)
- - An Home component, following the new [Angular2 Router tutorial](https://angular.io/docs/ts/latest/guide/router.html)
- - Enabled [RxJS Operators](https://angular.io/docs/ts/latest/guide/server-communication.html#!#enable-rxjs-operators)
- - Handy App Providers import file
- - App Config file based on environment
-
-You can clone this repository as an Angular2 starter for your projects, instead of using `ng new` and adding every time the things above. 
-
-I'll try to keep it updated with new versions of Angular-CLI, but, after cloning it, you can upgrade it by yourself, folowing [these instructions](https://github.com/angular/angular-cli#updating-angular-cli).
-
-Please, refer to [Angular-CLI](https://github.com/angular/angular-cli) for more info about generator commands.
-
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+In order to try this project:
+- Run `ng install` to install all the dependendes.
+- Run `ng serve` for a dev server.
+- Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 

@@ -1,7 +1,7 @@
 {
-  "name": "angular2-starter",
+  "name": "item-manager",
   "version": "0.0.1",
-  "description": "Angular2 Starter with Angular-CLI and some useful stuff",
+  "description": "The awesome item manager",
   "license": "MIT",
   "author": {
     "name": "Daniele Ghidoli",
@@ -9,16 +9,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ghidoz/angular2-starter"
+    "url": "https://github.com/ghidoz/item-manager"
   },
   "bugs": {
-    "url": "https://github.com/ghidoz/angular2-starter/issues"
+    "url": "https://github.com/ghidoz/item-manager/issues"
   },
   "keywords": [
     "angular",
     "angular2",
-    "starter",
-    "seed"
+    "item",
+    "manager"
   ],
   "scripts": {
     "start": "ng serve",
