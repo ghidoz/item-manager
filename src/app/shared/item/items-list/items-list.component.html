@@ -1,5 +1,7 @@
-<div class="row">
-  <div *ngFor="let item of items" class="col-lg-3 col-md-4 col-sm-6">
-    <item-detail [item]="item"></item-detail>
+<div infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="500" (scrolled)="onScroll()">
+  <div class="row">
+    <div *ngFor="let item of items" class="col-lg-3 col-md-4 col-sm-6">
+      <item-detail [item]="item"></item-detail>
+    </div>
   </div>
 </div>

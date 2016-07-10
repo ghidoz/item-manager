@@ -27,7 +27,8 @@ module.exports = function(defaults) {
       '@angular/**/*.+(js|js.map)',
       'ng2-bootstrap/**/*.js',
       'moment/moment.js',
-      'underscore/underscore.js'
+      'underscore/underscore.js',
+      'angular2-infinite-scroll/**/*.js'
     ]
   });
   let sass = mergeTrees(_.map(glob.sync('src/**/*.scss'), function(sassFile) {

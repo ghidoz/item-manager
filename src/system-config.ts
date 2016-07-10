@@ -10,11 +10,13 @@ const map: any = {
   'ng2-bootstrap': 'vendor/ng2-bootstrap',
   'moment': 'vendor/moment/moment.js',
   'underscore': 'vendor/underscore/underscore.js',
+  'angular2-infinite-scroll': 'vendor/angular2-infinite-scroll'
 };
 
 /** User packages configuration. */
 const packages: any = {
-  'ng2-bootstrap': {defaultExtension: 'js'}
+  'ng2-bootstrap': {defaultExtension: 'js'},
+  'angular2-infinite-scroll': {defaultExtension: 'js', main: 'angular2-infinite-scroll.js'},
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////

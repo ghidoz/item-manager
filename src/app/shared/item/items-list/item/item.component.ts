@@ -13,8 +13,6 @@ export class ItemComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
-    console.log('ciao');
-  }
+  ngOnInit() { }
 
 }

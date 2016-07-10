@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InfiniteScroll } from 'angular2-infinite-scroll';
 import { ItemService } from '../item.service';
 import { Item } from '../item.model';
 import { ItemComponent } from './item/item.component';
@@ -9,18 +10,29 @@ import { ItemComponent } from './item/item.component';
     templateUrl: 'items-list.component.html',
     styleUrls: ['items-list.component.css'],
     providers: [ItemService],
-    directives: [ItemComponent]
+    directives: [ItemComponent, InfiniteScroll]
 })
 export class ItemsListComponent implements OnInit {
 
     items: Item[];
+    page: number = 1;
+    pageSize: number = 4;
     
     constructor(private itemService: ItemService) { }
 
     ngOnInit() { 
-        this.itemService.query().subscribe((items: Item[]) => {
-            this.items = items;
+        this.getItems();
+    }
+
+    getItems(append: boolean = false){
+        this.itemService.query(this.page, this.pageSize).subscribe((items: Item[]) => {
+            this.items = append ? this.items.concat(items) : items;
         });
+    }
+
+    onScroll(){
+        this.page++;
+        this.getItems(true);
     }
 
 }
