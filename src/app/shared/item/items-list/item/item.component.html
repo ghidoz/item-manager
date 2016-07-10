@@ -1,6 +1,7 @@
 <div class="card">
   <img class="card-img-top img-fluid" src="images/{{item.image}}" />
   <div class="card-block">
+    <add-to-wishlist [item]="item" class="pull-right"></add-to-wishlist>
     <span class="price">{{item.price}}&euro;</span>
     <h4 class="card-title">{{item.title}}</h4>
     <p class="card-text">{{item.description}}</p>
