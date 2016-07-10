@@ -12,13 +12,17 @@
         <h4 class="modal-title">Wishlist</h4>
       </div>
       <div class="modal-body">
-        <div class="row">
-          <div *ngFor="let item of items" class="col-lg-3 col-md-4 col-sm-6">
-            <item-detail [item]="item" compact="true" (onWishlistChange)="updateWishlist()"></item-detail>
+        <div [hidden]="items?.length == 0 && !filters">
+          <filter (filters)="onFiltersChange($event)" compact="true"></filter>
+          <div class="row">
+            <div *ngFor="let item of items" class="col-lg-3 col-md-4 col-sm-6">
+              <item-detail [item]="item" compact="true" (onWishlistChange)="updateWishlist()"></item-detail>
+            </div>
           </div>
         </div>
         <div [hidden]="items?.length !== 0">
-            <p class="text-sm-center">Your wishlist is empty! Add something ;)</p>
+            <p class="text-sm-center" [hidden]="filters">Your wishlist is empty! Add something ;)</p>
+            <p class="text-sm-center" [hidden]="!filters">No results for this search. Try again!</p>
         </div>
       </div>
     </div>

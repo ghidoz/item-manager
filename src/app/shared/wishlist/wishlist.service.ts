@@ -20,4 +20,10 @@ export class WishlistService {
         return typeof _.findWhere(this.wishlist, {id: id}) !== 'undefined';
     }
 
+    filterByTitle(title: string){
+        return _.filter(this.wishlist, (item) => {
+            return item.title.toLowerCase().indexOf(title) !== -1;
+        });
+    }
+
 }

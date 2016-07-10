@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -10,6 +10,8 @@ export class FilterComponent implements OnInit {
 
   item: any = {};
   @Output() filters: EventEmitter<any> = new EventEmitter();
+  @Input() compact: boolean;
+
 
   constructor() {
   }
