@@ -36,8 +36,10 @@ export class ItemService {
     private extractQueryData(res: any): Item[] {
         let body = res.json();
         let items: Item[] = [];
+        let index = 1;
         body.items.forEach((item: any) => {
-            items.push(new Item(item.title, item.description, +item.price, item.email, item.image));
+            items.push(new Item(index, item.title, item.description, +item.price, item.email, item.image));
+            index++;
         })
         this.data = items;
         return items;

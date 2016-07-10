@@ -12,11 +12,12 @@ export class WishlistService {
         this.wishlist.push(item);
     }
 
-    remove(item: Item){
-        let index = this.wishlist.indexOf(item);
-        if(index !== -1) {
-            this.wishlist.splice(index, 1);
-        }
+    remove(id: number){
+        this.wishlist = _.reject(<any>this.wishlist, (item: any) => item.id === id);
+    }
+
+    isAdded(id: number){
+        return typeof _.findWhere(this.wishlist, {id: id}) !== 'undefined';
     }
 
 }

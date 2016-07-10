@@ -11,7 +11,7 @@ import { WishlistService } from '../wishlist.service';
 export class AddToWishlistComponent implements OnInit {
 
   @Input() item: Item;
-  added: boolean;
+  private _added: boolean;
 
   constructor(private wishlistService: WishlistService) {}
 
@@ -24,8 +24,17 @@ export class AddToWishlistComponent implements OnInit {
   }
 
   removeFromWishlist(){
-    this.wishlistService.remove(this.item);
+    this.wishlistService.remove(this.item.id);
     this.added = false;
+  }
+
+  get added(): boolean {
+    this._added = this.wishlistService.isAdded(this.item.id);
+    return this._added;
+  }
+
+  set added(value: boolean){
+    this._added = value;
   }
 
 }
