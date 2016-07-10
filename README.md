@@ -1,5 +1,12 @@
 # Item Manager
 
+Welcome to the awesome Item Manager! :)
+
+## Demo
+Try the demo here: [https://ghidoz.github.io/item-manager/](https://ghidoz.github.io/item-manager/)
+
+## Run
+
 In order to try this project:
 - Run `ng install` to install all the dependendes.
 - Run `ng serve` for a dev server.
