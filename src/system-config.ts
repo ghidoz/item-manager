@@ -15,7 +15,7 @@ const map: any = {
 
 /** User packages configuration. */
 const packages: any = {
-  'ng2-bootstrap': {defaultExtension: 'js'},
+  'ng2-bootstrap': {defaultExtension: 'js', main: 'ng2-bootstrap.js'},
   'angular2-infinite-scroll': {defaultExtension: 'js', main: 'angular2-infinite-scroll.js'},
 };
 
@@ -43,11 +43,12 @@ const barrels: string[] = [
   'app/shared/item',
   'app/home',
   'app/shared/item/items-list',
-  'app/shared/item/items-list/item',
+  'app/shared/item/item-detail',
   'app/shared/item/filter',
   'app/shared/item/sort',
-  'app/shared/item/wishlist',
-  'app/shared/item/wishlist/add-to-wishlist',
+  'app/shared/wishlist',
+  'app/shared/wishlist/add-to-wishlist',
+  'app/shared/wishlist/show-wishlist',
   /** @cli-barrel */
 ];
 

@@ -1,0 +1,26 @@
+<button class="btn btn-primary" (click)="lgModal.show()">
+  <i class="fa fa-star" aria-hidden="true"></i> Wishlist
+</button>
+
+<div bsModal (onShow)="onDialogShow()" #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="lgModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Wishlist</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div *ngFor="let item of items" class="col-lg-3 col-md-4 col-sm-6">
+            <item-detail [item]="item" compact="true" (onWishlistChange)="updateWishlist()"></item-detail>
+          </div>
+        </div>
+        <div [hidden]="items?.length !== 0">
+            <p class="text-sm-center">Your wishlist is empty! Add something ;)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

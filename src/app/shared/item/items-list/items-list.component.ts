@@ -2,7 +2,7 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { InfiniteScroll } from 'angular2-infinite-scroll';
 import { ItemService } from '../item.service';
 import { Item } from '../item.model';
-import { ItemComponent } from './item/item.component';
+import { ItemComponent } from '../item-detail/item.component';
 
 @Component({
     moduleId: module.id,
