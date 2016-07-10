@@ -6,4 +6,8 @@
   </div>
 </div>
 
-<p class="text-xs-center" *ngIf="!isLastPage"><button class="btn btn-primary" (click)="loadMore()">Load more</button></p>
+<p class="text-xs-center" [hidden]="isLastPage || items?.length == 0"><button class="btn btn-primary" (click)="loadMore()">Load more</button></p>
+
+<div [hidden]="items?.length !== 0">
+    <p class="text-sm-center">No results for this search. Try again!</p>
+</div>
