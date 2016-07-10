@@ -1,7 +1,6 @@
 import { Component, ViewContainerRef } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import './shared/rxjs-operators';
-//import { APP_CONFIG } from './environment';
 
 @Component({
   moduleId: module.id,
