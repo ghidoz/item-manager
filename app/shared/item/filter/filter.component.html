@@ -1,0 +1,12 @@
+<nav class="navbar navbar-dark bg-primary">
+  <form class="form-inline" (ngSubmit)="onSubmit()">
+    <label>Filter by:</label>
+    <input class="form-control" type="text" placeholder="Title" [(ngModel)]="item.title" name="title" />
+    <span [hidden]="compact">
+      <input class="form-control" type="text" placeholder="Description" [(ngModel)]="item.description" name="description" />
+      <input class="form-control" type="number" placeholder="Max Price" [(ngModel)]="item.price" name="price" />
+      <input class="form-control" type="email" placeholder="Email" [(ngModel)]="item.email" name="email" />
+    </span>
+    <button class="btn btn-secondary" type="submit">Search</button>
+  </form>
+</nav>
