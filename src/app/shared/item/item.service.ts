@@ -13,14 +13,16 @@ export class ItemService {
 
     constructor(private http: Http) { }
 
-    query(page: number, size: number = 5): Observable<Item[]> {
+    query(page: number, size: number = 5, filters?: any): Observable<Item[]> {
         page--;
         if(this.data.length > 0){
             return Observable.of(this.data)
+                .map((items: Item[]) => this.filter(items, filters))
                 .map((items: Item[]) => this.paginate(items, page, size))
         }
         return this.http.get(this.apiUrl)
             .map((res: any) => this.extractQueryData(res))
+            .map((items: Item[]) => this.filter(items, filters))
             .map((items: Item[]) => this.paginate(items, page, size))
             .catch((res: any) => this.handleError(res));
     }
@@ -33,7 +35,7 @@ export class ItemService {
         let body = res.json();
         let items: Item[] = [];
         body.items.forEach((item: any) => {
-            items.push(new Item(item.title, item.description, item.price, item.email, item.image));
+            items.push(new Item(item.title, item.description, +item.price, item.email, item.image));
         })
         this.data = items;
         return items;
@@ -49,6 +51,26 @@ export class ItemService {
     private paginate(items: Item[], page: number, size: number){
         let paginated = _.chain(items).rest(page * size).first(size).value();
         return paginated;
+    }
+
+    private filter(items: Item[], filters?: any): Item[]{
+        if(!filters) return items;
+        let results: any[] = items;
+        for(let key of _.keys(filters)){
+            if(filters[key] && filters[key] !== ''){
+                results = this.search(results, filters[key], key);
+            }
+        }
+        return results;
+    }
+
+    private search(results: Item[], keyword: string, field: string){
+        return _.filter(results, (item) => {
+            if(isNaN(item[field])){
+                return item[field].toLowerCase().indexOf(keyword) !== -1;
+            }
+            return item[field] <= keyword;
+        });
     }
 
 }
