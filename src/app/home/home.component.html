@@ -1,2 +1,3 @@
 <filter (filters)="onFiltersChange($event)"></filter>
-<items-list [filters]="filters"></items-list>
+<sort (sortBy)="sort = $event"></sort>
+<items-list [filters]="filters" [sort]="sort"></items-list>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChange } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { InfiniteScroll } from 'angular2-infinite-scroll';
 import { ItemService } from '../item.service';
 import { Item } from '../item.model';
@@ -18,6 +18,7 @@ export class ItemsListComponent implements OnInit, OnChanges {
     page: number = 1;
     pageSize: number = 4;
     @Input() filters: any;
+    @Input() sort: string;
 
     constructor(private itemService: ItemService) { }
 
@@ -26,7 +27,7 @@ export class ItemsListComponent implements OnInit, OnChanges {
     }
 
     getItems(append: boolean = false){
-        this.itemService.query(this.page, this.pageSize, this.filters).subscribe((items: Item[]) => {
+        this.itemService.query(this.page, this.pageSize, this.filters, this.sort).subscribe((items: Item[]) => {
             this.items = append ? this.items.concat(items) : items;
         });
     }
@@ -41,8 +42,9 @@ export class ItemsListComponent implements OnInit, OnChanges {
     }
 
     ngOnChanges(changes: any) {
-        let filters: any = changes.filters.currentValue;
-        if(filters){
+        let filters: any = changes.filters ? changes.filters.currentValue : null;
+        let sort: any = changes.sort ? changes.sort.currentValue : null;
+        if(filters || sort){
             this.page = 1;
             this.getItems(false);
         }

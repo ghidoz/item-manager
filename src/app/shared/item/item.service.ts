@@ -13,16 +13,18 @@ export class ItemService {
 
     constructor(private http: Http) { }
 
-    query(page: number, size: number = 5, filters?: any): Observable<Item[]> {
+    query(page: number, size: number = 5, filters?: any, sortBy?: string): Observable<Item[]> {
         page--;
         if(this.data.length > 0){
             return Observable.of(this.data)
                 .map((items: Item[]) => this.filter(items, filters))
+                .map((items: Item[]) => this.sort(items, sortBy))
                 .map((items: Item[]) => this.paginate(items, page, size))
         }
         return this.http.get(this.apiUrl)
             .map((res: any) => this.extractQueryData(res))
             .map((items: Item[]) => this.filter(items, filters))
+            .map((items: Item[]) => this.sort(items, sortBy))
             .map((items: Item[]) => this.paginate(items, page, size))
             .catch((res: any) => this.handleError(res));
     }
@@ -71,6 +73,10 @@ export class ItemService {
             }
             return item[field] <= keyword;
         });
+    }
+
+    private sort(items: Item[], sortBy: string){
+        return _.sortBy(items, sortBy);
     }
 
 }

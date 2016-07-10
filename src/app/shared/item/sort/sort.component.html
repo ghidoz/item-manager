@@ -1,0 +1,6 @@
+<form class="form-inline">
+  <label for="sort">Sort by:</label>
+  <select class="form-control" id="sort" [(ngModel)]="sort" name="sort" (ngModelChange)="onSortChange($event)">
+    <option *ngFor="let field of fields" [value]="field">{{field}}</option>
+  </select>
+</form>
