@@ -1,6 +1,25 @@
 # Item Manager
 
+[![Angular 2 Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)
+[![Dependency Status](https://david-dm.org/ghidoz/item-manager.svg)](https://david-dm.org/ghidoz/item-manager)
+[![devDependency Status](https://david-dm.org/ghidoz/item-manager/dev-status.svg)](https://david-dm.org/ghidoz/item-manager#info=devDependencies)
+
 Welcome to the awesome Item Manager! :)
+
+Features:
+- Get items from JSON
+- Pagination with infinite scroll (and fallback load more button)
+- Search items by: title, description, price, email
+- Order items by: title, description, price, email
+- Add and remove items to/from wishlist
+- View wishlist in a modal
+- Filter wishlist by title
+
+Stack:
+- [Angular2](https://angular.io) & Typescript
+- Generated with [Angular-CLI](https://github.com/angular/angular-cli)
+- [Bootstrap 4](http://v4-alpha.getbootstrap.com) & [Sass](http://sass-lang.com/)
+
 
 ## Demo
 Try the demo here: [https://ghidoz.github.io/item-manager/](https://ghidoz.github.io/item-manager/)
